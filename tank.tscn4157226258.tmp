@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct1i8csypenl7"]
+
+[ext_resource type="Texture2D" uid="uid://befhh1dsdev5u" path="res://towerDefense_tile269.png" id="1_1ealj"]
+[ext_resource type="Script" uid="uid://c1umiout1fwac" path="res://tank.gd" id="1_a62es"]
+[ext_resource type="Texture2D" uid="uid://clk82h7x5biwf" path="res://towerDefense_tile292.png" id="2_a62es"]
+[ext_resource type="Texture2D" uid="uid://em8lx2y17w78" path="res://towerDefense_tile273.png" id="4_yfqcd"]
+[ext_resource type="Texture2D" uid="uid://b1nau22aapg66" path="res://aimingLine.png" id="5_lk6ub"]
+
+[node name="Tank" type="Node2D"]
+script = ExtResource("1_a62es")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("1_1ealj")
+
+[node name="Turret" type="Sprite2D" parent="."]
+texture = ExtResource("2_a62es")
+
+[node name="MousePos" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_yfqcd")
+
+[node name="Laser" type="Sprite2D" parent="."]
+position = Vector2(2528, 4)
+texture = ExtResource("5_lk6ub")

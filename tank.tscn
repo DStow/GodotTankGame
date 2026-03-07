@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://ct1i8csypenl7"]
+
+[ext_resource type="Texture2D" uid="uid://befhh1dsdev5u" path="res://towerDefense_tile269.png" id="1_1ealj"]
+[ext_resource type="Script" uid="uid://c1umiout1fwac" path="res://tank.gd" id="1_a62es"]
+[ext_resource type="Texture2D" uid="uid://clk82h7x5biwf" path="res://towerDefense_tile292.png" id="2_a62es"]
+[ext_resource type="PackedScene" uid="uid://cvmlf7jp72ixd" path="res://MouseReticle.tscn" id="5_i433e"]
+[ext_resource type="Texture2D" uid="uid://b1nau22aapg66" path="res://aimingLine.png" id="5_lk6ub"]
+[ext_resource type="Script" uid="uid://po85y1opaqrj" path="res://reload_component.gd" id="6_i433e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lk6ub"]
+font_size = 18
+font_color = Color(0.93006504, 0, 0.14252338, 1)
+
+[node name="Tank" type="Node2D"]
+script = ExtResource("1_a62es")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("1_1ealj")
+
+[node name="Turret" type="Sprite2D" parent="."]
+texture = ExtResource("2_a62es")
+
+[node name="Laser" type="Sprite2D" parent="Turret"]
+visible = false
+position = Vector2(2528, 5)
+rotation = 0.00029696152
+texture = ExtResource("5_lk6ub")
+
+[node name="ProjectileSpawnPosition" type="Marker2D" parent="Turret"]
+position = Vector2(58, -4)
+
+[node name="LaserSpawnPosition" type="Marker2D" parent="Turret"]
+position = Vector2(28, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimeToTarget" type="Label" parent="CanvasLayer"]
+offset_left = -24.0
+offset_top = 14.0
+offset_right = 52.0
+offset_bottom = 69.0
+text = "1.1s"
+label_settings = SubResource("LabelSettings_lk6ub")
+
+[node name="MouseReticle" parent="." node_paths=PackedStringArray("reload_component") instance=ExtResource("5_i433e")]
+reload_component = NodePath("../ReloadComponent")
+
+[node name="ReloadComponent" type="Node" parent="."]
+script = ExtResource("6_i433e")
+reload_time = 0.6
+metadata/_custom_type_script = "uid://po85y1opaqrj"

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dufuj4ifrn7gt"]
+
+[ext_resource type="Script" uid="uid://dyj2ukuxx1pwi" path="res://scripts/main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ct1i8csypenl7" path="res://scenes/tank.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node2D" unique_id=2106313151]
+position = Vector2(494, 309)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_0xm2m")
+
+[node name="Tank" parent="." unique_id=109914610 instance=ExtResource("1_ig7tw")]

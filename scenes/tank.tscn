@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://ct1i8csypenl7"]
+
+[ext_resource type="Texture2D" uid="uid://befhh1dsdev5u" path="res://assets/towerDefense_tile269.png" id="1_1ealj"]
+[ext_resource type="Script" uid="uid://c1umiout1fwac" path="res://scripts/tank.gd" id="1_a62es"]
+[ext_resource type="Texture2D" uid="uid://clk82h7x5biwf" path="res://assets/towerDefense_tile292.png" id="2_a62es"]
+[ext_resource type="PackedScene" uid="uid://cvmlf7jp72ixd" path="res://scenes/MouseReticle.tscn" id="5_i433e"]
+[ext_resource type="Texture2D" uid="uid://b1nau22aapg66" path="res://assets/aimingLine.png" id="5_lk6ub"]
+[ext_resource type="Script" uid="uid://po85y1opaqrj" path="res://scripts/reload_component.gd" id="6_i433e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lk6ub"]
+font_size = 18
+font_color = Color(0.93006504, 0, 0.14252338, 1)
+
+[node name="Tank" type="Node2D" unique_id=1888823490]
+script = ExtResource("1_a62es")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=1462713210]
+texture = ExtResource("1_1ealj")
+
+[node name="Turret" type="Sprite2D" parent="." unique_id=1535268289]
+texture = ExtResource("2_a62es")
+
+[node name="Laser" type="Sprite2D" parent="Turret" unique_id=1847902047]
+visible = false
+position = Vector2(2528, 5)
+rotation = 0.00029696152
+texture = ExtResource("5_lk6ub")
+
+[node name="ProjectileSpawnPosition" type="Marker2D" parent="Turret" unique_id=1135883513]
+position = Vector2(58, -4)
+
+[node name="LaserSpawnPosition" type="Marker2D" parent="Turret" unique_id=798096740]
+position = Vector2(28, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2026076604]
+
+[node name="TimeToTarget" type="Label" parent="CanvasLayer" unique_id=170718463]
+offset_left = -24.0
+offset_top = 14.0
+offset_right = 52.0
+offset_bottom = 69.0
+text = "1.1s"
+label_settings = SubResource("LabelSettings_lk6ub")
+
+[node name="MouseReticle" parent="." unique_id=2028429335 node_paths=PackedStringArray("reload_component") instance=ExtResource("5_i433e")]
+reload_component = NodePath("../ReloadComponent")
+
+[node name="ReloadComponent" type="Node" parent="." unique_id=228194387]
+script = ExtResource("6_i433e")
+reload_time = 0.6
+metadata/_custom_type_script = "uid://po85y1opaqrj"

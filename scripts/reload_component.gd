@@ -27,5 +27,4 @@ func is_reloading() -> bool:
 func reload_progress() -> float:
 	var left = reload_time - _remaining_reload_time
 	var result = (left / reload_time)
-	print(result)
 	return result

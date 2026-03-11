@@ -1,7 +1,8 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var turn_speed: float = 0.9
 @export var turret_rotation_speed: float = 2.6
+@export var camera: Camera2D
 
 var forward_velocity = 0
 var acceleration = 100
@@ -47,7 +48,11 @@ func _process(delta: float) -> void:
 	forward_velocity = clampf(forward_velocity, -max_velocity, max_velocity)
 
 	var motion_vector = Vector2(forward_velocity, 0).rotated(rotation)
-	position += motion_vector * delta
+	
+	velocity = motion_vector
+	var collided = move_and_slide()
+	if collided and forward_velocity > 20:
+		forward_velocity = 20
 	
 	if(!is_turret_facing_desired()):
 		var required_rotation = get_turret_rotation_to_target(mouse_pos.position)
@@ -79,7 +84,9 @@ func is_turret_facing_desired() -> bool:
 	
 func _input(event):
 	if event is InputEventMouseMotion:
-		mouse_global_pos = event.global_position
+		mouse_global_pos = event.global_position - camera.global_position
+		# Apply the camera offset here
+		
 	
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT and is_turret_facing_desired() and reload_component.can_fire() :

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://befhh1dsdev5u" path="res://assets/towerDefense_tile269.png" id="1_1ealj"]
 [ext_resource type="Script" uid="uid://c1umiout1fwac" path="res://scripts/tank.gd" id="1_a62es"]
 [ext_resource type="Texture2D" uid="uid://clk82h7x5biwf" path="res://assets/towerDefense_tile292.png" id="2_a62es"]
-[ext_resource type="PackedScene" uid="uid://cvmlf7jp72ixd" path="res://scenes/MouseReticle.tscn" id="5_i433e"]
+[ext_resource type="PackedScene" uid="uid://cvmlf7jp72ixd" path="res://scenes/mouse_reticle.tscn" id="5_i433e"]
 [ext_resource type="Texture2D" uid="uid://b1nau22aapg66" path="res://assets/aimingLine.png" id="5_lk6ub"]
 [ext_resource type="Script" uid="uid://po85y1opaqrj" path="res://scripts/reload_component.gd" id="6_i433e"]
 
@@ -11,7 +11,15 @@
 font_size = 18
 font_color = Color(0.93006504, 0, 0.14252338, 1)
 
-[node name="Tank" type="Node2D" unique_id=1888823490]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ixom"]
+radius = 36.016403
+height = 104.03154
+
+[node name="Tank" type="CharacterBody2D" unique_id=688939582]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 2.3561945
 script = ExtResource("1_a62es")
 
 [node name="Body" type="Sprite2D" parent="." unique_id=1462713210]
@@ -49,3 +57,7 @@ reload_component = NodePath("../ReloadComponent")
 script = ExtResource("6_i433e")
 reload_time = 0.6
 metadata/_custom_type_script = "uid://po85y1opaqrj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297523701]
+rotation = 1.5618817
+shape = SubResource("CapsuleShape2D_1ixom")

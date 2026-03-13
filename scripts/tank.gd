@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 @export var turn_speed: float = 0.9
 @export var turret_rotation_speed: float = 2.6
-@export var camera: Camera2D
-
 var forward_velocity = 0
 var acceleration = 100
 var max_velocity = 150
@@ -84,7 +82,7 @@ func is_turret_facing_desired() -> bool:
 	
 func _input(event):
 	if event is InputEventMouseMotion:
-		mouse_global_pos = event.global_position - camera.global_position
+		mouse_global_pos = event.global_position
 		# Apply the camera offset here
 		
 	

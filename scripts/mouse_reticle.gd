@@ -13,16 +13,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	rotation = -get_parent().global_rotation
-	
 	queue_redraw()
-		
-	if _looking_at_target:
-		cursor_sprite.modulate = Color.GREEN
-	else:
-		cursor_sprite.modulate = Color.RED
-		
+
 func set_looking_at_target(value: bool) -> void:
+	if _looking_at_target == value:
+		return
 	_looking_at_target = value
+	cursor_sprite.modulate = Color.GREEN if value else Color.RED
+	queue_redraw()
 	
 	
 func _draw() -> void:

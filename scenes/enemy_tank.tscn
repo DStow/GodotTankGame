@@ -9,9 +9,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj5mm"]
 size = Vector2(99, 66)
 
-[node name="EnemyTank" type="RigidBody2D" unique_id=386355528]
+[node name="EnemyTank" type="CharacterBody2D" unique_id=756333197]
 collision_mask = 3
-gravity_scale = 0.0
 script = ExtResource("1_cdaou")
 
 [node name="Body" type="Sprite2D" parent="." unique_id=1462713210]

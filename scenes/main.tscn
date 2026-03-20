@@ -7,8 +7,11 @@
 [node name="Main" type="Node" unique_id=1457123647]
 script = ExtResource("1_0xm2m")
 
-[node name="Tank" parent="." unique_id=109914610 instance=ExtResource("1_ig7tw")]
+[node name="Characters" type="Node2D" parent="." unique_id=1550775817]
+scale = Vector2(0.5, 0.5)
+
+[node name="Tank" parent="Characters" unique_id=109914610 instance=ExtResource("1_ig7tw")]
 position = Vector2(518, 163)
 
-[node name="EnemyTank" parent="." unique_id=386355528 instance=ExtResource("3_sugp2")]
+[node name="EnemyTank" parent="Characters" unique_id=386355528 instance=ExtResource("3_sugp2")]
 position = Vector2(567, 449)

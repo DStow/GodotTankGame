@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var turn_speed: float = 0.9
 @export var turret_rotation_speed: float = 2.6

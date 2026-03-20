@@ -51,7 +51,7 @@ label_settings = SubResource("LabelSettings_lk6ub")
 
 [node name="ReloadComponent" type="Node" parent="." unique_id=228194387]
 script = ExtResource("6_i433e")
-reload_time = 0.6
+reload_time = 1.2
 metadata/_custom_type_script = "uid://po85y1opaqrj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297523701]

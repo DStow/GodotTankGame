@@ -19,3 +19,4 @@ targetting_reticle = NodePath("../../TargettingReticle")
 position = Vector2(567, 449)
 
 [node name="TargettingReticle" parent="." unique_id=446826365 instance=ExtResource("4_jyhfs")]
+scale = Vector2(0.4, 0.4)

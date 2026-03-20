@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if global_position != _mouse_global_pos:
+	if global_position != _mouse_global_pos or _reload_component.is_reloading():
 		queue_redraw()
 	
 	global_position = _mouse_global_pos

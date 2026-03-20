@@ -23,6 +23,10 @@ config/icon="res://icon.svg"
 
 ProjectileManager="*res://scripts/projectile_manager.gd"
 
+[global_group]
+
+projectile=""
+
 [input]
 
 turn_left={

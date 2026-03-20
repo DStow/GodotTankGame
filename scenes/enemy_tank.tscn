@@ -4,10 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://befhh1dsdev5u" path="res://assets/towerDefense_tile269.png" id="2_7jbgw"]
 [ext_resource type="Texture2D" uid="uid://clk82h7x5biwf" path="res://assets/towerDefense_tile292.png" id="3_muwb7"]
 [ext_resource type="Texture2D" uid="uid://b1nau22aapg66" path="res://assets/aimingLine.png" id="4_w7buc"]
+[ext_resource type="Script" uid="uid://dadh4ekudpb13" path="res://scripts/health_component.gd" id="6_cdaou"]
 [ext_resource type="Script" uid="uid://po85y1opaqrj" path="res://scripts/reload_component.gd" id="6_nfsb0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj5mm"]
 size = Vector2(99, 66)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mj5mm"]
+radius = 36.0
+height = 104.0
 
 [node name="EnemyTank" type="CharacterBody2D" unique_id=756333197]
 collision_mask = 3
@@ -34,11 +39,24 @@ position = Vector2(58, -4)
 [node name="LaserSpawnPosition" type="Marker2D" parent="Turret" unique_id=798096740]
 position = Vector2(28, 4)
 
+[node name="BodyCollisionBox" type="CollisionShape2D" parent="." unique_id=357153963]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_mj5mm")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1494597374]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1371596638]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mj5mm")
+
 [node name="ReloadComponent" type="Node" parent="." unique_id=228194387]
 script = ExtResource("6_nfsb0")
 reload_time = 0.6
 metadata/_custom_type_script = "uid://po85y1opaqrj"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=357153963]
-position = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_mj5mm")
+[node name="HealthComponent" type="Node" parent="." unique_id=1816430895]
+script = ExtResource("6_cdaou")
+max_health = 20
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="no_health" from="HealthComponent" to="." method="_on_health_component_no_health"]

@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://befhh1dsdev5u" path="res://assets/towerDefense_tile269.png" id="1_1ealj"]
 [ext_resource type="Script" uid="uid://c1umiout1fwac" path="res://scripts/tank.gd" id="1_a62es"]
 [ext_resource type="Texture2D" uid="uid://clk82h7x5biwf" path="res://assets/towerDefense_tile292.png" id="2_a62es"]
-[ext_resource type="PackedScene" uid="uid://cvmlf7jp72ixd" path="res://scenes/mouse_reticle.tscn" id="5_i433e"]
 [ext_resource type="Texture2D" uid="uid://b1nau22aapg66" path="res://assets/aimingLine.png" id="5_lk6ub"]
 [ext_resource type="Script" uid="uid://po85y1opaqrj" path="res://scripts/reload_component.gd" id="6_i433e"]
 
@@ -49,10 +48,6 @@ offset_right = 52.0
 offset_bottom = 69.0
 text = "1.1s"
 label_settings = SubResource("LabelSettings_lk6ub")
-
-[node name="MouseReticle" parent="." unique_id=2028429335 node_paths=PackedStringArray("reload_component") instance=ExtResource("5_i433e")]
-scale = Vector2(0.6, 0.6)
-reload_component = NodePath("../ReloadComponent")
 
 [node name="ReloadComponent" type="Node" parent="." unique_id=228194387]
 script = ExtResource("6_i433e")

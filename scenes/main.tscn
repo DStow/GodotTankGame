@@ -6,8 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://cvmlf7jp72ixd" path="res://scenes/targetting_reticle.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://caj68cncv0rah" path="res://scenes/crate.tscn" id="5_tbgi4"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tbgi4"]
+vertices = PackedVector2Array(1142, 643.96094, 10, 640.03125, 10, 12.9609375, 1142, 9.03125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-7, -6, -10, 659, 1163, 659, 1162, -11)])
+
 [node name="Main" type="Node" unique_id=1457123647]
 script = ExtResource("1_0xm2m")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=738421781]
+position = Vector2(1, 0)
+navigation_polygon = SubResource("NavigationPolygon_tbgi4")
 
 [node name="Characters" type="Node2D" parent="." unique_id=1550775817]
 scale = Vector2(0.5, 0.5)

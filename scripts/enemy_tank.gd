@@ -15,6 +15,7 @@ var mouse_global_pos: Vector2 = Vector2.ZERO
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var enemy_targeting_component: EnemyTargetingComponent = $EnemyTargetingComponent
 @onready var turret: Sprite2D = $Turret
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 var _player_last_seen: Vector2 = Vector2.ZERO
 
@@ -27,6 +28,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Check if the player can be seen
 	handle_player_targetting(delta)
+	
+	if _player_last_seen != Vector2.ZERO:
+		navigation_agent_2d.target_position = _player_last_seen
+		var next_pos = navigation_agent_2d.get_next_path_position()
+		print("Next pos", next_pos)
 
 func handle_player_targetting(delta: float):
 	var visible_player: Tank = enemy_targeting_component.target_player()

@@ -63,5 +63,7 @@ max_health = 20
 script = ExtResource("7_7jbgw")
 metadata/_custom_type_script = "uid://d2as8vq4aybud"
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=95017765]
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="no_health" from="HealthComponent" to="." method="_on_health_component_no_health"]

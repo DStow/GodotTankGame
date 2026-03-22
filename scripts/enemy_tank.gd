@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name EnemyTank
+
 @export var turn_speed: float = 0.9
 @export var turret_rotation_speed: float = 2.6
 
@@ -11,6 +13,7 @@ var mouse_global_pos: Vector2 = Vector2.ZERO
 
 @onready var reload_component: ReloadComponent = $ReloadComponent
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var enemy_targeting_component: EnemyTargetingComponent = $EnemyTargetingComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,8 +22,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	# Check if the player can be seen
+	handle_player_targetting()
 
+func handle_player_targetting():
+	var visible_player: Tank = enemy_targeting_component.target_player()
+	if visible_player == null:
+		return
+		
+	print("Player tank found", visible_player)
+	# Turn to face the player
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	var parent: Node2D = area.get_parent()

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ct1i8csypenl7" path="res://scenes/tank.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b6a0bfrxfip4f" path="res://scenes/enemy_tank.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cvmlf7jp72ixd" path="res://scenes/targetting_reticle.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://caj68cncv0rah" path="res://scenes/crate.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node" unique_id=1457123647]
 script = ExtResource("1_0xm2m")
@@ -20,3 +21,8 @@ position = Vector2(567, 449)
 
 [node name="TargettingReticle" parent="." unique_id=446826365 instance=ExtResource("4_jyhfs")]
 scale = Vector2(0.4, 0.4)
+
+[node name="Environment" type="Node2D" parent="." unique_id=971956367]
+
+[node name="Crate" parent="Environment" unique_id=1258489853 instance=ExtResource("5_tbgi4")]
+position = Vector2(275, 160)

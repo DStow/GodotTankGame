@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b1nau22aapg66" path="res://assets/aimingLine.png" id="4_w7buc"]
 [ext_resource type="Script" uid="uid://dadh4ekudpb13" path="res://scripts/health_component.gd" id="6_cdaou"]
 [ext_resource type="Script" uid="uid://po85y1opaqrj" path="res://scripts/reload_component.gd" id="6_nfsb0"]
+[ext_resource type="Script" uid="uid://d2as8vq4aybud" path="res://scripts/enemy_targeting_component.gd" id="7_7jbgw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj5mm"]
 size = Vector2(99, 66)
@@ -57,6 +58,10 @@ metadata/_custom_type_script = "uid://po85y1opaqrj"
 [node name="HealthComponent" type="Node" parent="." unique_id=1816430895]
 script = ExtResource("6_cdaou")
 max_health = 20
+
+[node name="EnemyTargetingComponent" type="Node2D" parent="." unique_id=1277959181]
+script = ExtResource("7_7jbgw")
+metadata/_custom_type_script = "uid://d2as8vq4aybud"
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="no_health" from="HealthComponent" to="." method="_on_health_component_no_health"]

@@ -26,6 +26,7 @@ ProjectileManager="*res://scripts/projectile_manager.gd"
 [global_group]
 
 projectile=""
+player=""
 
 [input]
 

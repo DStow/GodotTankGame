@@ -26,3 +26,23 @@ scale = Vector2(0.4, 0.4)
 
 [node name="Crate" parent="Environment" unique_id=1258489853 instance=ExtResource("5_tbgi4")]
 position = Vector2(275, 160)
+
+[node name="Crate2" parent="Environment" unique_id=317571626 instance=ExtResource("5_tbgi4")]
+position = Vector2(501, 303)
+
+[node name="Crate3" parent="Environment" unique_id=441839993 instance=ExtResource("5_tbgi4")]
+position = Vector2(167, 332)
+
+[node name="Crate4" parent="Environment" unique_id=1834427867 instance=ExtResource("5_tbgi4")]
+position = Vector2(303, 468)
+
+[node name="Crate5" parent="Environment" unique_id=310290209 instance=ExtResource("5_tbgi4")]
+position = Vector2(354, 309)
+
+[node name="Crate6" parent="Environment" unique_id=603886944 instance=ExtResource("5_tbgi4")]
+position = Vector2(490.00003, 80)
+rotation = -0.41949022
+
+[node name="Crate7" parent="Environment" unique_id=1349956567 instance=ExtResource("5_tbgi4")]
+position = Vector2(404.00003, 190.99997)
+rotation = -0.41949022

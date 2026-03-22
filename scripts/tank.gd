@@ -53,11 +53,9 @@ func _process(delta: float) -> void:
 	
 	if(!is_turret_facing_desired()):
 		var required_rotation: float = get_turret_rotation_to_target(targetting_reticle.global_position)
-
 		var time_to_complete: float = snappedf(abs(required_rotation) / turret_rotation_speed, 0.1)
 		time_to_target.text = str(time_to_complete) + "s"
 		required_rotation = clampf(required_rotation, turret_rotation_speed * -1 * delta, turret_rotation_speed * delta)
-
 		turret.rotation += required_rotation
 
 	# Now check again after the rotation has been applied

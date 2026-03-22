@@ -2,6 +2,8 @@ extends Node2D
 
 class_name EnemyTargetingComponent
 
+@export var targeting_range: float = 500
+
 var _player_tank: Tank = null
 var _papi: EnemyTank = null
 var _raycast: RayCast2D = null
@@ -23,7 +25,8 @@ func setup_raycast() -> void:
 # Call this, if the tank can see the player tank,
 # it will return the player tank otherwise null
 func target_player() -> Tank:
-	_raycast.target_position = _raycast.to_local(_player_tank.global_position)
+	var to_player = _raycast.to_local(_player_tank.global_position)
+	_raycast.target_position = to_player.limit_length(targeting_range)
 	if _raycast.is_colliding():
 		if _raycast.get_collider() == _player_tank:
 			return _player_tank
